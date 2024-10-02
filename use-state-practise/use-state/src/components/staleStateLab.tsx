@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Numbers() {
+export function StaleStateLab() {
   const [numbers, setNumbers] = useState([1, 2]);
 
   const addToNumbers = () => {

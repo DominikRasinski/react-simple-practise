@@ -1,22 +1,17 @@
-import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import UseStateLab from './useStateLab';
+import { NavLink } from 'react-router-dom';
 
 function HomePage() {
   return (
     <div className='App-header'>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path='/UseStateLab'
-            element={<UseStateLab />}
-          />
-          <Route
-            path='*'
-            element={<HomePage />}
-          />
-        </Routes>
-      </BrowserRouter>
+      <h1>Welcome to the Home Page</h1>
+      <ol style={{ padding: '10px' }}>
+        <li>
+          <NavLink to='/useStateLab'>useState Lab</NavLink>
+        </li>
+        <li>
+          <NavLink to='/staleStateLab'>Stale State Lab</NavLink>
+        </li>
+      </ol>
     </div>
   );
 }
