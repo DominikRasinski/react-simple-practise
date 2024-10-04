@@ -1,19 +1,25 @@
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { LinksList } from './linksList';
 
-function HomePage() {
+type HomePageProps = {
+  children?: React.ReactNode;
+};
+
+function HomePage(props: HomePageProps) {
+  const { children } = props;
+
   return (
     <div className='App-header'>
       <h1>Welcome to the Home Page</h1>
-      <ol style={{ padding: '10px' }}>
-        <li>
-          <NavLink to='/useStateLab'>useState Lab</NavLink>
-        </li>
-        <li>
-          <NavLink to='/staleStateLab'>Stale State Lab</NavLink>
-        </li>
-      </ol>
+      {children && children}
     </div>
   );
 }
 
-export default HomePage;
+export function HomePageStructure() {
+  return (
+    <HomePage>
+      <LinksList />
+    </HomePage>
+  );
+}
