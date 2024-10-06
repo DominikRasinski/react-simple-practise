@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Markdown from 'react-markdown';
+import { LaboContainer } from '../components/laboContainer';
 
 const UseStateLab: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -8,10 +10,16 @@ const UseStateLab: React.FC = () => {
   };
 
   return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={handleClick}>Click me</button>
-    </div>
+    <>
+      <LaboContainer>
+        <p>You clicked {count} times</p>
+        <button onClick={handleClick}>Click me</button>
+      </LaboContainer>
+      <LaboContainer>
+        <Markdown>{`# Hook useState`}</Markdown>
+        <Markdown>{`Służy do obsługi stanu jaki zapisujemy po stronie **klienta**`}</Markdown>
+      </LaboContainer>
+    </>
   );
 };
 

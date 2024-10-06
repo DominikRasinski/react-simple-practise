@@ -10,7 +10,11 @@
 
 .App {
   @apply text-center
-  font-mono;
+  font-mono
+  h-full
+  w-full
+  text-white
+  text-2xl;
 }
 
 .App-header {

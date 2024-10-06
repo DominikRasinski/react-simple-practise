@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MenuForLabStructure } from '../components/menuForLab';
+import { LaboContainer } from '../components/laboContainer';
 
 export function StaleStateLab() {
   const [numbers, setNumbers] = useState([1, 2]);
@@ -10,10 +10,11 @@ export function StaleStateLab() {
   };
 
   return (
-    <div className='App'>
-      <div>{numbers.join(',')}</div>
-      <button onClick={addToNumbers}>Add number</button>
-      <MenuForLabStructure />
-    </div>
+    <>
+      <LaboContainer>
+        <div>{numbers.join(',')}</div>
+        <button onClick={addToNumbers}>Add number</button>
+      </LaboContainer>
+    </>
   );
 }

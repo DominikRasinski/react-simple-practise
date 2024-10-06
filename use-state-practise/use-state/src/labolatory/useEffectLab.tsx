@@ -1,3 +1,9 @@
+import { LaboContainer } from '../components/laboContainer';
+
 export const UseEffectLab = () => {
-  return <div>UseEffectLab</div>;
+  return (
+    <LaboContainer>
+      <div>UseEffectLab</div>
+    </LaboContainer>
+  );
 };

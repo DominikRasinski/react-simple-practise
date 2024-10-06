@@ -6,7 +6,7 @@ import { UseEffectLab } from './labolatory/useEffectLab';
 import { UseRefLab } from './labolatory/useRefLab';
 import { UseReducerLab } from './labolatory/useReducerLab';
 import { UseContextLab } from './labolatory/useContextLab';
-import { LinksList } from './components/linksList';
+import { MenuForLabStructure } from './components/menuForLab';
 import './App.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
@@ -16,33 +16,39 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
+            path='/'
             index
             element={<HomePageStructure />}
           />
           <Route
-            path='/useStateLab'
-            element={<UseStateLab />}
-          />
-          <Route
-            path='/staleStateLab'
-            element={<StaleStateLab />}
-          />
-          <Route
-            path='/useEffectLab'
-            element={<UseEffectLab />}
-          />
-          <Route
-            path='/useRefLab'
-            element={<UseRefLab />}
-          />
-          <Route
-            path='/useReducerLab'
-            element={<UseReducerLab />}
-          />
-          <Route
-            path='/useContextLab'
-            element={<UseContextLab />}
-          />
+            path='/'
+            element={<MenuForLabStructure />}>
+            <Route
+              path='useStateLab'
+              element={<UseStateLab />}
+            />
+            <Route
+              path='/staleStateLab'
+              element={<StaleStateLab />}
+            />
+            <Route
+              path='/useEffectLab'
+              element={<UseEffectLab />}
+            />
+            <Route
+              path='/useRefLab'
+              element={<UseRefLab />}
+            />
+            <Route
+              path='/useReducerLab'
+              element={<UseReducerLab />}
+            />
+            <Route
+              path='/useContextLab'
+              element={<UseContextLab />}
+            />
+          </Route>
+
           <Route
             path='*'
             element={<div>Not Found</div>}

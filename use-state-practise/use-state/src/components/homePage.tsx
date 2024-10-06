@@ -1,5 +1,6 @@
 import React from 'react';
 import { LinksList } from './linksList';
+import { Outlet } from 'react-router-dom';
 
 type HomePageProps = {
   children?: React.ReactNode;
@@ -20,6 +21,7 @@ export function HomePageStructure() {
   return (
     <HomePage>
       <LinksList />
+      <Outlet />
     </HomePage>
   );
 }
