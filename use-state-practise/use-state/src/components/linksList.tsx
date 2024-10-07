@@ -21,6 +21,9 @@ export const LinksList = () => {
       <li>
         <NavLink to='/useContextLab'>useContext Lab</NavLink>
       </li>
+      <li>
+        <NavLink to='/reduxLab'>Redux Lab</NavLink>
+      </li>
     </ol>
   );
 };
