@@ -13,3 +13,4 @@ Również jest dostepny server json ale aby był dostępy do działania musimy d
 - simple json server
 - react-markdown
 - tailwindCss
+- redux
