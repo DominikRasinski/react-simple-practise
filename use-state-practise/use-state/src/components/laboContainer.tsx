@@ -9,7 +9,7 @@ export const LaboContainer = (props: LaboContainerProps) => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen bg-[#282c34]'>
+    <div className='flex flex-col justify-center items-center min-h-screen bg-[#282c34] gap-4'>
       {props.children}
     </div>
   );
