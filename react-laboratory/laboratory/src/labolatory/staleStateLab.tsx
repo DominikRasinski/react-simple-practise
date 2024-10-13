@@ -1,9 +1,9 @@
 // ts-ignore
-import React, { useState } from 'react';
-import { LaboContainer } from '../components/laboContainer';
-import Markdown from 'react-markdown';
-import ReactMarkdown from 'react-markdown';
-import SyntaxHighlighter from 'react-markdown';
+import React, { useState } from "react";
+import { LaboContainer } from "../components/laboContainer";
+import { InsideContainers } from "../components/InsideContainers";
+import Markdown from "react-markdown";
+import { HighlighSyntax } from "../components/HighlighSyntax";
 
 export function StaleStateLab() {
   const [count, setCount] = useState(0);
@@ -16,10 +16,22 @@ export function StaleStateLab() {
     }, 1000);
   };
 
+  const staleStateCode = `
+   setTimeout(() => {
+      setCount(count + 1);
+    }, 1000);
+  `;
+
+  const fixStaleStateCode = `
+    setTimeout(() => {
+      setCount((prev) => prev + 1);
+    }, 1000);
+  `;
+
   return (
     <>
       <LaboContainer>
-        <div className='flex items-start flex-col text-start p-4 max-w-[1000px]'>
+        <InsideContainers type="toLeft">
           <h1>Stale State Lab</h1>
           <p>
             <Markdown>
@@ -35,29 +47,31 @@ export function StaleStateLab() {
               desynchronizacja
             </Markdown>
           </p>
-        </div>
+        </InsideContainers>
 
         <div>
           <p>Count: {count}</p>
-          <button
-            onClick={handleClick}
-            className='bg-red-500 rounded-lg p-2'>
+          <button onClick={handleClick} className="bg-red-500 rounded-lg p-2">
             Increment
           </button>
           <p>Count click: {countClick}</p>
         </div>
       </LaboContainer>
       <LaboContainer>
-        <div className='flex items-start flex-col text-start p-4 max-w-[1000px]'>
+        <InsideContainers type="toLeft">
           <p>
             <Markdown>
               Błąd ten jest spowodowany przez zjawisko **Stale State** co
               sprowadza się do tego, że state jaki jest wykorzystywany do
-              aktualizacji jest z desynchronizowany z aktualnym stanem.
+              aktualizacji jest z de synchronizowany z aktualnym stanem.
             </Markdown>
           </p>
-        </div>
+        </InsideContainers>
         <Markdown>{`# Kod`}</Markdown>
+        <HighlighSyntax codeString={staleStateCode} />
+      </LaboContainer>
+      <LaboContainer>
+        <HighlighSyntax codeString={fixStaleStateCode} />
       </LaboContainer>
     </>
   );

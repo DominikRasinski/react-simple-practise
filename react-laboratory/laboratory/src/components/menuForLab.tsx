@@ -11,7 +11,7 @@ const MenuForLab = (props: MenuForLabProps) => {
   return (
     <main className='flex flex-row h-full'>
       <div className='w-1/5 h-full bg-slate-800 overflow-y-scroll max-h-screen min-h-screen'>
-        <h1>Menu</h1>
+        <h1 className='bg-slate-600 gap-4 p-2'>Menu</h1>
         {children && children}
       </div>
       <div className='w-4/5 max-h-screen min-h-screen overflow-y-scroll'>
