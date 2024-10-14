@@ -4,6 +4,7 @@ import { LaboContainer } from "../components/laboContainer";
 import { InsideContainers } from "../components/InsideContainers";
 import Markdown from "react-markdown";
 import { HighlighSyntax } from "../components/HighlighSyntax";
+import { Buttons } from "../components/Buttons";
 
 export function StaleStateLab() {
   const [count, setCount] = useState(0);
@@ -51,9 +52,7 @@ export function StaleStateLab() {
 
         <div>
           <p>Count: {count}</p>
-          <button onClick={handleClick} className="bg-red-500 rounded-lg p-2">
-            Increment
-          </button>
+          <Buttons onClick={handleClick}>Increment</Buttons>
           <p>Count click: {countClick}</p>
         </div>
       </LaboContainer>
@@ -71,6 +70,21 @@ export function StaleStateLab() {
         <HighlighSyntax codeString={staleStateCode} />
       </LaboContainer>
       <LaboContainer>
+        <InsideContainers type="toLeft">
+          <p>
+            <Markdown>
+              Aby pozbyć się błędu **Stale State** nie możemy korzystać z zmiennej stanu bezpośrednio,
+              a zamiast warto skorzystać z funkcji, która zwraca aktualny stan.
+            </Markdown>
+            <ul>
+              <li>
+                <Markdown>
+                Metodologia ta nazywa się **Functional Update** i jest to zalecane podejście.
+                </Markdown>
+              </li>
+            </ul>
+          </p>
+        </InsideContainers>
         <HighlighSyntax codeString={fixStaleStateCode} />
       </LaboContainer>
     </>
