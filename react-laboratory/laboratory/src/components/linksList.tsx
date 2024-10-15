@@ -1,6 +1,25 @@
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const LinksList = () => {
+
+  useEffect(() => {
+    async function fetchData() {
+      const url = 'http://localhost:8000/hooks';
+      try {
+        const response = await fetch(url);
+        if(!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <ol className='list-decimal underline '>
       <li>

@@ -1,0 +1,48 @@
+{
+    "hooks":
+    [
+        {
+            "path": "/useStateLab",
+            "label": "useState Lab"
+        },
+        {
+            "path": "/staleStateLab",
+            "label": "Stale State Lab"
+        },
+        {
+            "path": "/useEffectLab",
+            "label": "useEffect Lab"
+        },
+        {
+            "path": "/useRefLab",
+            "label": "useRef Lab"
+        },
+        {
+            "path": "/useReducerLab",
+            "label": "useReducer Lab"
+        },
+        {
+            "path": "/useContextLab",
+            "label": "useContext Lab"
+        },
+        {
+            "path": "/reduxLab",
+            "label": "Redux Lab"
+        }
+    ],
+    "technics":
+    [
+        {
+            "path": "/useStaleStateLab",
+            "label": "React Lab"
+        },
+        {
+            "path": "/componentCompositionLab",
+            "label": "Redux Lab"
+        },
+        {
+            "path": "/reactReduxLab",
+            "label": "React-Redux Lab"
+        }
+    ]
+}
