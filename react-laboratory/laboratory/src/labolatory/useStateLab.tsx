@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import Markdown from 'react-markdown';
-import { LaboContainer } from '../components/laboContainer';
-import { Buttons } from '../components/Buttons';
-import { InsideContainers } from '../components/InsideContainers';
-import { HighlighSyntax } from '../components/HighlighSyntax';
+import React, { useState } from "react";
+import Markdown from "react-markdown";
+import { LaboContainer } from "../components/laboContainer";
+import { Buttons } from "../components/Buttons";
+import { InsideContainers } from "../components/InsideContainers";
+import { HighlighSyntax } from "../components/HighlighSyntax";
+import { MarkdownFileRender } from "../components/MarkdownFileRender";
 
 const UseStateLab: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -39,10 +40,14 @@ const UseStateLab: React.FC = () => {
       <LaboContainer>
         <InsideContainers type="centered">
           <Markdown>{`# **Ważne**`}</Markdown>
-          <Markdown>{`Hook useState przy każdej aktualizacji stanu wywołuję re-render całego komponentu w którym został wykorzystany.
+          <Markdown>
+            {`Hook useState przy każdej aktualizacji stanu wywołuję re-render całego komponentu w którym został wykorzystany.
           Co może powodować nieskończone re-rendery, co również doprowadzi to do błędu aplikacji ponieważ react jest wyczulony aby komponenty nie były przebudowywane w nieskończoność`}
           </Markdown>
         </InsideContainers>
+      </LaboContainer>
+      <LaboContainer>
+        <MarkdownFileRender />
       </LaboContainer>
     </>
   );
