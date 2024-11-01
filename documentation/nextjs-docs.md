@@ -7,6 +7,7 @@ Dzięki połączeniu React.js oraz Next.js tworzymy aplikację umożliwiającą 
 [Słownik](#słownik)\
 [Tworzenie Route w Next.js](#tworzenie-route-w-nextjs)\
 [Tworzenie nawigacji](#tworzenie-linków-pozwalających-na-nawigację)
+[Dodawanie layoutu]()
 
 ## Słownik
 
@@ -25,9 +26,9 @@ Przykładowy układ:
 |
 |__/app
     |
-    |__/about
+    |__/about *
     |     |
-    |     |__page.js
+    |     |__page.js *
     ...
 ```
 Jak można zauważyć dosyć prosta struktura, posiadamy teraz stronę `/about` nazwa pliku wewnątrz folderu nie jest przypadkowa, ponieważ jeżeli chcemy aby plik został potraktowany jako strona musi przybrać nazwę `page` rozszerzenie zależy od języka w którym piszemy, jeżeli chcemy pisać w ts to rozszerzenie musi być .ts itd.
@@ -42,9 +43,9 @@ A jak chcemy dodać kolejną stronę na przykład `/contact` to musimy zrobić t
     |     |
     |     |__page.js
     |
-    |__/contact
+    |__/contact *
     |       |
-    |       |__page.js
+    |       |__page.js *
     ...
 ```
 Oczywiście plik `page.js` sam w sobie nie wystarczy aby wygenerować stronę, należy również w nim zamieścić komponent jaki ma zostać wygenerowany. Nazwa komponentu jest dowolna.
@@ -71,3 +72,71 @@ const HomePage = () => {
 
 export default HomePage;
 ```
+
+## Tworzenie Layoutu
+
+Layout w Next.js to specjalna warstwa wizualna, która jest współdzielona pomiędzy routami w naszej aplikacji. Jest naprawdę przydatny mechanizm który możemy wykorzystać do szybszego przygotowywania aplikacji.
+
+Każda aplikacja postawiona na Next.js posiada w sobie `root layout` jest on wymagany do działania aplikacji i nie może zostać usunięty, usunięcie go spowoduje, że Next.js stworzy automatycznie go na nowo.
+
+Root layout znajduje się w takiej ścieżce aplikacji Next.js:
+
+```
+/app
+  |
+  |__layout.js
+  ...
+```
+
+Wnętrze `root layout`:
+
+```ts
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body>
+        {/* Layout UI */}
+        <main>{children}</main>
+      </body>
+    </html>
+  )
+}
+```
+**Uwaga!** Jedynie główny layout czyli `root layout` może mieć w sobie znaczniki `<html>` oraz `<body>`
+Wykorzystanie `children` jako `ReactNode` jest bardzo wskazane, ze względu na to, że prop children w layout przyjmuje komponenty, które są zdefiniowane w routes w pliku `page.js`.
+
+Przykład rout'a:
+
+```
+|
+|__/app
+    |
+    |__/about
+    |     |
+    |     |__page.js
+    |
+    |__layout.js *
+```
+Plik `layout.js` zostanie automatycznie zaaplikowany do rout'a `/about`. Jeżeli główny plik `layoutu` nie będzie posiadać w sobie zdefiniowanego wykorzystania `children` to komponent z pliku `/about/page.js` nie zostanie zaimportowany wewnątrz `layoutu`, za to zostanie wyświetlona podstawowa zawartość jaka została zdefiniowana w pliki layoutu.
+
+### Zagnieżdżanie layoutu w layoucie
+
+Istnieje możliwość zagnieżdżenie jednego layoutu w drugim. Aby zagnieździć jeden layout w drugim należy stworzyć taką strukturę
+
+```
+|
+|__/app
+    |
+    |__/about
+    |     |
+    |     |__layout.js *
+    |     |
+    |     |__page.js
+    |
+    |__layout.js
+```
+Dodanie pliku layout.js w rout `/about` spowoduje, że **root layout** wewnątrz ścieżki `/app` zagnieździ wewnątrz siebie nowy layout z ścieżki `/about`.
