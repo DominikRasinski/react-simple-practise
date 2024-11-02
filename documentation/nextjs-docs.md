@@ -1,19 +1,23 @@
 # Dokumentacja opisująca działanie framework Next.js
 Next.js został opracowany w oparciu o cel wsparcia biblioteki React.js o łaczenie się z backendem oraz umożliwienie wykorzystania `RSC` (React Server Components).\
-Dzięki połączeniu React.js oraz Next.js tworzymy aplikację umożliwiającą renderowanie po stronie serwera co przekłada się bardzo dobrze na SEO aplikacji, a dzięki temu mamy lepiej indeksowaną stronę co przekłada sie na wyświetlanie jej w przeglądarkach.
+Dzięki połączeniu React.js oraz Next.js, możemy, stworzyć aplikację umożliwiającą renderowanie po stronie serwera co przekłada się bardzo dobrze na SEO aplikacji, a dzięki temu mamy lepiej indeksowaną stronę co przekłada sie na wyświetlanie jej w przeglądarkach.
+
+> Warto zaznaczyć, że zasady, jak i cała technologia RSC nie zadziała w aplikacji bez framework'u typu Next.js, Remix itp.
 
 ## Spis treści
 
 [Słownik](#słownik)\
 [Tworzenie Route w Next.js](#tworzenie-route-w-nextjs)\
-[Tworzenie nawigacji](#tworzenie-linków-pozwalających-na-nawigację)
-[Dodawanie layoutu]()
+[Tworzenie nawigacji](#tworzenie-linków-pozwalających-na-nawigację)\
+[Tworzenie Layoutu](#tworzenie-layoutu)\
+[React Server Components](#react-server-components)
 
 ## Słownik
 
-* RSC - React Server Component komponent, który jest renderowany po stronie serwera i nie posiada możliwości na wykorzystanie hooków dostarczanych przez bibliotekę React.js
-* RCC - React Client Component komponent renderowany po stronie klienta czyli przeglądarki posiada dostęp do hooków dostarczanych przez bibliotekę React.js, ale jest o wiele wolniejszy i może przyczynić się do zmniejszenia wyników SEO.
-* Route - ścieżka do pliku/strony 
+* **RSC** - React Server Component komponent, który jest renderowany po stronie serwera i nie posiada możliwości na wykorzystanie hooków dostarczanych przez bibliotekę React.js
+* **RCC** - React Client Component komponent renderowany po stronie klienta czyli przeglądarki posiada dostęp do hooków dostarczanych przez bibliotekę React.js, ale jest o wiele wolniejszy i może przyczynić się do zmniejszenia wyników SEO.
+* **Route** - ścieżka do pliku/strony
+* **Waterfall** - w czystym zastosowaniu programistycznym a w tym wypadku podczas tworzenia aplikacji opartej na bibliotece React to waterfall odnosi się momentu, kiedy komponent zaciąga dane za pomocą API a wewnątrz jego istnieją również komponenty, które też zaciągają dane. Więc za nim pierwszy komponent zostanie wyrenderowany musimy zaczekać na ostatni komponent gdy pobierze dane.
 
 
 ## Tworzenie Route w Next.js
@@ -140,3 +144,19 @@ Istnieje możliwość zagnieżdżenie jednego layoutu w drugim. Aby zagnieździ�
     |__layout.js
 ```
 Dodanie pliku layout.js w rout `/about` spowoduje, że **root layout** wewnątrz ścieżki `/app` zagnieździ wewnątrz siebie nowy layout z ścieżki `/about`.
+
+## React Server Components
+
+Wszystkie komponenty tworzone w aplikacji wykorzystującej framework Next.js są komponentami powiązanymi z serwerem.
+
+### Problemy, jakie rozwiązuje RSC:
+
+1. Waterfall
+2. Mniejsza ilość pobranego kodu JS przez klienta
+3. Szybszy czas renderowania komponentów
+
+### Problemy, jakie dodaje RSC:
+
+1. Wyrenderowany komponent nie posiada interaktywności, ze względu na wycięty kod JS
+2. Bardziej skomplikowana struktura projektu
+3. Komponenty wyrenderowane po stronie [RSC](#słownik), nie mogą korzystać z hook'ów/stanów, jakie może zaoferować komponent wyrenderowany normalnie za pomocą [RCC](#słownik)
