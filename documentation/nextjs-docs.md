@@ -162,3 +162,11 @@ Wszystkie komponenty tworzone w aplikacji wykorzystującej framework Next.js są
 1. Wyrenderowany komponent nie posiada interaktywności, ze względu na wycięty kod JS
 2. Bardziej skomplikowana struktura projektu
 3. Komponenty wyrenderowane po stronie [RSC](#słownik), nie mogą korzystać z hook'ów/stanów, jakie może zaoferować komponent wyrenderowany normalnie za pomocą [RCC](#słownik)
+
+## Hydracja
+
+Występuje w momencie, kiedy komponent serwerowy jest odpowiedzialny za renderowanie komponentu klienckiego. Hydracje można utożsamić z 'nawadnianiem' szkieletu HTML, jaki został wyrenderowany.
+
+Hydracja ma za zadanie rozwiązanie problemu renderowanie komponentów po stronie serwera co kończy się jego brakiem interaktywności, ze względu na to, że serwer renderuje komponent bez bundla kodu JS. Więc kiedy chcemy wygenerować komponent kliencki przez komponent serwerowy mamy doczynienia z Hydracją która dodaje do komponentu klienckiego potrzebny kod JS do jego prawidłowego funkcjonowania.
+
+Kod JS jest dodawany za pomocą lazy loading w momencie pierwszego renderu co przyspiesza wyświetlenie aplikacji, ale gdy mamy do czynienia z słabą siecią to aplikacja zostanie wyświetlona ale użytkownik nie będzie mógł wejść w interackję z nią
