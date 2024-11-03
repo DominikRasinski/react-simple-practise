@@ -54,6 +54,8 @@ A jak chcemy dodać kolejną stronę na przykład `/contact` to musimy zrobić t
 ```
 Oczywiście plik `page.js` sam w sobie nie wystarczy aby wygenerować stronę, należy również w nim zamieścić komponent jaki ma zostać wygenerowany. Nazwa komponentu jest dowolna.
 
+Plik `page.js` musi być zawsze wykonywany po stronie serwera, ponieważ z założenia w **Next.js** jest komponentem serwerowym
+
 ## Tworzenie linków pozwalających na nawigację
 
 W aplikacji możemy wykorzystać podstawowe linki do nawigacji typu `<a href="link">` ale wykorzystanie takiego znacznika spowoduje przekierowanie typu `Hard` czyli cała strone zostanie od nowa skonstruowana co przyczyni się do nie potrzebnego wyczekiwania na zładowanie ponownie całego pakietu strony.
