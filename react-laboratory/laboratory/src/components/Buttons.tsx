@@ -6,7 +6,7 @@ type ButtonsProps = {
 export const Buttons = (props: ButtonsProps) => {
     const { children } = props;
     return (
-        <button onClick={props.onClick} className="bg-red-500 rounded-lg p-2">
+        <button onClick={props.onClick} className="bg-red-500 rounded-lg p-2 my-2">
             {children}
         </button>
     );

@@ -35,6 +35,7 @@ const UseStateLab: React.FC = () => {
         <InsideContainers type="toLeft">
           <Markdown>{`# Hook useState`}</Markdown>
           <Markdown>{`Służy do obsługi stanu jaki zapisujemy po stronie **klienta**`}</Markdown>
+          <Markdown>{`Hook useState jest wykorzystywany w momencie kiedy stan wyświetlany przez komponent musi się zmienić w innym przypadku warto korzystać z useRef`}</Markdown>
         </InsideContainers>
       </LaboContainer>
       <LaboContainer>
@@ -45,9 +46,6 @@ const UseStateLab: React.FC = () => {
           Co może powodować nieskończone re-rendery, co również doprowadzi to do błędu aplikacji ponieważ react jest wyczulony aby komponenty nie były przebudowywane w nieskończoność`}
           </Markdown>
         </InsideContainers>
-      </LaboContainer>
-      <LaboContainer>
-        <MarkdownFileRender />
       </LaboContainer>
     </>
   );
