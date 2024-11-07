@@ -28,6 +28,10 @@
       {
         "path": "/reduxLab",
         "label": "Redux Lab"
+      },
+      {
+        "path": "/createContextLab",
+        "label": "Create Context Lab"
       }
     ],
     "technics": [

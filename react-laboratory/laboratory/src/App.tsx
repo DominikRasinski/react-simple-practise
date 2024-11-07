@@ -9,57 +9,13 @@ import { UseReducerLab } from './labolatory/useReducerLab';
 import { UseContextLab } from './labolatory/useContextLab';
 import { MenuForLabStructure } from './components/menuForLab';
 import { ReduxLab } from './labolatory/reduxLab';
+import {LinksList} from "./components/linksList/linksList";
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path='/'
-            index
-            element={<HomePageStructure />}
-          />
-          <Route
-            path='/'
-            element={<MenuForLabStructure />}>
-            <Route
-              path='useStateLab'
-              element={<UseStateLab />}
-            />
-            <Route
-              path='/staleStateLab'
-              element={<StaleStateLab />}
-            />
-            <Route
-              path='/useEffectLab'
-              element={<UseEffectLab />}
-            />
-            <Route
-              path='/useRefLab'
-              element={<UseRefLab />}
-            />
-            <Route
-              path='/useReducerLab'
-              element={<UseReducerLab />}
-            />
-            <Route
-              path='/useContextLab'
-              element={<UseContextLab />}
-            />
-            <Route
-              path='/reduxLab'
-              element={<ReduxLab />}
-            />
-          </Route>
-
-          <Route
-            path='*'
-            element={<div>Not Found</div>}
-          />
-        </Routes>
-      </BrowserRouter>
+      <LinksList type={'routes'} />
     </div>
   );
 }

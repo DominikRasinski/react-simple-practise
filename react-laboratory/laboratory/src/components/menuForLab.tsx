@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { LinksList } from "./linksList";
+import { LinksList } from "./linksList/linksList";
 import { MenuStrategy } from "../modules/MenuStrategy";
 import { useEffect } from "react";
 

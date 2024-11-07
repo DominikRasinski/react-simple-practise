@@ -12,7 +12,7 @@ export const UseContextLab = () => {
       <InsideContainers type="toLeft">
         <div>
           UseContext jest specjalnym hookiem który pozwala na
-          subskrypcję/obserwację context'u znajdującego się w komponencie
+          subskrypcję/obserwację context'u znajdującego się w komponencie, aby móc zasubskrybować kontekst komponentu najpierw należy stworzyć kontekst za pomocą createContext
         </div>
         <HighlighSyntax codeString={codeExample} />
       </InsideContainers>
