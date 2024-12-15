@@ -5,6 +5,16 @@ import Markdown from "react-markdown";
 import { HighlighSyntax } from "../components/HighlighSyntax";
 
 const DATA_URL = "http://localhost:8000/menu";
+type dataType = {
+  hooks: [{
+    path: string,
+    label: string
+  }],
+  technics: [{
+    path: string,
+    label: string
+  }]
+}
 
 type Data = {
   hooks: [
@@ -23,10 +33,7 @@ type Data = {
 
 export const UseEffectLab = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<Data>({
-    hooks: [{ path: "", label: "" }],
-    technics: [{ path: "", label: "" }],
-  });
+  const [data, setData] = useState<dataType>({} as dataType);
 
   useEffect(() => {
     async function getData() {
@@ -46,6 +53,7 @@ export const UseEffectLab = () => {
     }
     getData();
   }, []);
+
   return (
     <LaboContainer>
       <InsideContainers type="toLeft">
@@ -71,18 +79,28 @@ export const UseEffectLab = () => {
         </p>
       </InsideContainers>
       <InsideContainers type="toLeft">
-        <h2>Menu</h2>
+        <h2>Menu hooks</h2>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <ul>
-            {data.hooks.map((item) => (
-              <li key={item.label}>{item.label}</li>
-            ))}
-            {data.technics.map((item) => (
-              <li key={item.label}>{item.label}</li>
-            ))}
-          </ul>
+          <>
+            <h3 className="font-bold pb-2 pt-2">Hooki</h3>
+            <ul>
+              {data.hooks?.map((hook, index) => (
+                <li key={index}>
+                  <a href={hook?.path}>{hook?.label}</a>
+                </li>
+              ))}
+            </ul>
+            <h3 className="font-bold pb-2 pt-2">Techniki</h3>
+            <ul>
+              {data.technics?.map((technic, index) => (
+                <li key={index}>
+                  <a href={technic?.path}>{technic?.label}</a>
+                </li>
+              ))}
+            </ul>
+          </>
         )}
       </InsideContainers>
     </LaboContainer>
