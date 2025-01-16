@@ -6,9 +6,27 @@ import { HighlighSyntax } from "../components/HighlighSyntax";
 
 const DATA_URL = "http://localhost:8000/menu";
 
+type Data = {
+  hooks: [
+    {
+      path: string;
+      label: string;
+    }
+  ];
+  technics: [
+    {
+      path: string;
+      label: string;
+    }
+  ];
+};
+
 export const UseEffectLab = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Data>({
+    hooks: [{ path: "", label: "" }],
+    technics: [{ path: "", label: "" }],
+  });
 
   useEffect(() => {
     async function getData() {
@@ -58,8 +76,11 @@ export const UseEffectLab = () => {
           <p>Loading...</p>
         ) : (
           <ul>
-            {data.map((item) => (
-              <li key={item}>{item}</li>
+            {data.hooks.map((item) => (
+              <li key={item.label}>{item.label}</li>
+            ))}
+            {data.technics.map((item) => (
+              <li key={item.label}>{item.label}</li>
             ))}
           </ul>
         )}
