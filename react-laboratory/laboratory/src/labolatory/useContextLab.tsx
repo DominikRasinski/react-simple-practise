@@ -1,6 +1,11 @@
 import { LaboContainer } from "../components/laboContainer";
 import { InsideContainers } from "../components/InsideContainers";
 import { HighlighSyntax } from "../components/HighlighSyntax";
+import React, { Children, createContext, ReactNode, useContext } from "react";
+
+type Theme = "light" | "dark" | null;
+
+const ThemeContext = createContext<Theme>(null);
 
 const codeExample = `
   const value = useContext(SomeContext)
@@ -77,6 +82,37 @@ export const UseContextLab = () => {
           <HighlighSyntax codeString={codeExample4} />
         </InsideContainers>
       </LaboContainer>
+      <LaboContainer>
+        <ThemeContext.Provider value="dark">
+          <Form />
+        </ThemeContext.Provider>
+      </LaboContainer>
     </>
   );
+};
+
+const Form = () => {
+  return (
+    <Panel title="Welcome">
+      <Button>Sign up</Button>
+      <Button>Log In</Button>
+    </Panel>
+  );
+};
+
+const Panel = (title: string, children: ReactNode) => {
+  const theme = useContext(ThemeContext);
+  const className = "panel-" + theme;
+  return (
+    <div className={className}>
+      <h1>{title}</h1>
+      {children}
+    </div>
+  );
+};
+
+const Button = (children: ReactNode) => {
+  const theme = useContext(ThemeContext);
+  const className = "button-" + theme;
+  return <button className={className}>{children}</button>;
 };
