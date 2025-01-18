@@ -40,3 +40,8 @@ Uruchamian od razu całą aplikację react wraz z serwerem json który aktualnie
 - redux
 - react-syntax-highlighter
 - react-router-dom
+
+## Dokumentacja odnośnie React.js
+
+Dokumentacja odnośnie React.js znajduje się w tym repozytorium, które jest stale rozwijane o nowe informacje
+https://github.com/DominikRasinski/reactDocumentation/blob/main/functionalDocForReact.md#usecontext
