@@ -100,7 +100,12 @@ const Form = () => {
   );
 };
 
-const Panel = (title: string, children: ReactNode) => {
+interface PanelProps {
+  title: string;
+  children: ReactNode;
+}
+
+const Panel = ({ title, children }: PanelProps) => {
   const theme = useContext(ThemeContext);
   const className = "panel-" + theme;
   return (
@@ -111,7 +116,11 @@ const Panel = (title: string, children: ReactNode) => {
   );
 };
 
-const Button = (children: ReactNode) => {
+interface ButtonProps {
+  children: ReactNode;
+}
+
+const Button = ({ children }: ButtonProps) => {
   const theme = useContext(ThemeContext);
   const className = "button-" + theme;
   return <button className={className}>{children}</button>;
