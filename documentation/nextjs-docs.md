@@ -18,11 +18,11 @@ Dzięki połączeniu React.js oraz Next.js, możemy, stworzyć aplikację umożl
 - **RSC** - React Server Component komponent, który jest renderowany po stronie serwera i nie posiada możliwości na wykorzystanie hooków dostarczanych przez bibliotekę React.js
 - **RCC** - React Client Component komponent renderowany po stronie klienta czyli przeglądarki posiada dostęp do hooków dostarczanych przez bibliotekę React.js, ale jest o wiele wolniejszy i może przyczynić się do zmniejszenia wyników SEO.
 - **Route** - ścieżka do pliku/strony
-- **Waterfall** - w czystym zastosowaniu programistycznym a w tym wypadku podczas tworzenia aplikacji opartej na bibliotece React to waterfall odnosi się momentu, kiedy komponent zaciąga dane za pomocą API a wewnątrz jego istnieją również komponenty, które też zaciągają dane. Więc za nim pierwszy komponent zostanie wyrenderowany musimy zaczekać na ostatni komponent gdy pobierze dane.
+- **Waterfall** - w czystym zastosowaniu programistycznym a w tym wypadku podczas tworzenia aplikacji opartej na bibliotece React to waterfall odnosi się do momentu, kiedy komponent zaciąga dane za pomocą API a wewnątrz jego istnieją również komponenty, które też zaciągają dane. Więc za nim pierwszy komponent zostanie wyrenderowany musimy zaczekać na ostatni komponent pobierze dane.
 
 ## Tworzenie Route w Next.js
 
-Framework Next.js pozwala na tworzenie Route o szybciej niż paczka react-routes ponieważ w Next jest wykorzystywana struktura plików jako ścieżki do nowej strony, ale musi być zachowana pewna konwencja nazewnictwa plików oraz folder musi znajdywać się w głównej ścieżce `/app`
+Framework Next.js pozwala na tworzenie Route o wiele szybciej niż paczka react-routes ponieważ w Next jest wykorzystywana struktura plików jako ścieżki do nowej strony, ale musi być zachowana pewna konwencja nazewnictwa plików oraz folder musi znajdywać się w głównej ścieżce `/app`
 
 Przykładowy układ:
 
@@ -85,7 +85,7 @@ export default HomePage;
 
 ## Tworzenie Layoutu
 
-Layout w Next.js to specjalna warstwa wizualna, która jest współdzielona pomiędzy routami w naszej aplikacji. Jest naprawdę przydatny mechanizm który możemy wykorzystać do szybszego przygotowywania aplikacji.
+Layout w Next.js to specjalna warstwa wizualna, która jest współdzielona pomiędzy routami w naszej aplikacji. Jest to przydatny mechanizm który możemy wykorzystać do szybszego przygotowywania aplikacji.
 
 Każda aplikacja postawiona na Next.js posiada w sobie `root layout` jest on wymagany do działania aplikacji i nie może zostać usunięty, usunięcie go spowoduje, że Next.js stworzy automatycznie go na nowo.
 
