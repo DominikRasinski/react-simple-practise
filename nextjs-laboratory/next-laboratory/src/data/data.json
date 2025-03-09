@@ -1,0 +1,70 @@
+{
+    "apps": {
+        "app1": {
+            "symbol": "DELTA",
+            "appName": "delta.app",
+            "userName": "deltaUser",
+            "password": "delta123@"
+        },
+        "app2": {
+            "symbol": "ALPHA",
+            "appName": "alpha.app",
+            "userName": "alphaUser",
+            "password": "alpha123@"
+        },
+        "app3": {
+            "symbol": "BETA",
+            "appName": "beta.app",
+            "userName": "betaUser",
+            "password": "beta123@"
+        },
+        "app4": {
+            "symbol": "GAMMA",
+            "appName": "gamma.app",
+            "userName": "gammaUser",
+            "password": "gamma123@"
+        },
+        "app5": {
+            "symbol": "EPSILON",
+            "appName": "epsilon.app",
+            "userName": "epsilonUser",
+            "password": "epsilon123@"
+        },
+        "app6": {
+            "symbol": "ZETA",
+            "appName": "zeta.app",
+            "userName": "zetaUser",
+            "password": "zeta123@"
+        },
+        "app7": {
+            "symbol": "ETA",
+            "appName": "eta.app",
+            "userName": "etaUser",
+            "password": "eta123@"
+        },
+        "app8": {
+            "symbol": "THETA",
+            "appName": "theta.app",
+            "userName": "thetaUser",
+            "password": "theta123@"
+        },
+        "app9": {
+            "symbol": "IOTA",
+            "appName": "iota.app",
+            "userName": "iotaUser",
+            "password": "iota123@"
+        },
+        "app10": {
+            "symbol": "KAPPA",
+            "appName": "kappa.app",
+            "userName": "kappaUser",
+            "password": "kappa123@"
+        },
+        "app11": {
+            "symbol": "LAMBDA",
+            "appName": "lambda.app",
+            "userName": "lambdaUser",
+            "password": "lambda123@"
+        }
+    }
+}
