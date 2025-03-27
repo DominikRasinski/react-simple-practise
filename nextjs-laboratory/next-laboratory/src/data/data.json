@@ -66,5 +66,25 @@
             "userName": "lambdaUser",
             "password": "lambda123@"
         }
+    },
+    "users": {
+        "johndoe": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "login": "johndoe",
+            "password": "password123"
+        },
+        "janesmith": {
+            "firstName": "Jane",
+            "lastName": "Smith",
+            "login": "janesmith",
+            "password": "securepass456"
+        },
+        "alicejohnson": {
+            "firstName": "Alice",
+            "lastName": "Johnson",
+            "login": "alicejohnson",
+            "password": "mypassword789"
+        }
     }
 }
