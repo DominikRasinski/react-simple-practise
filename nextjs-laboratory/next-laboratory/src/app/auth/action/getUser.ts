@@ -1,5 +1,5 @@
 "use server"
-export const getUser = async (prevState: any, queryData: any) => {
+export const getUser = async (prevState: any, queryData: any): Promise<string> => {
     const dataLink = process.env.DATA_LINK;
 
     const login = queryData.get("login");

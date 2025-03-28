@@ -6,7 +6,7 @@ import "@ant-design/v5-patch-for-react-19";
 import { useActionState } from "react";
 
 type AuthProps = {
-    onSubmit: (prevState: any, queryData: any) => Promise<void>;
+    onSubmit: (prevState: any, queryData: any) => Promise<string>;
 }
 
 export const Auth = (props: AuthProps) => {
@@ -20,7 +20,7 @@ export const Auth = (props: AuthProps) => {
                     <Input size="large" placeholder="Podaj login" name="login" prefix={<UserOutlined />} />
                     <Input size="large" type="password" placeholder="Podaj hasło" name="password" prefix={<LockOutlined />} />
                     <Button type="primary" htmlType="submit">Zaloguj się</Button>
-                    {isPending ? "Loading" : `${state}`}
+                    {isPending ? "Loading" : state}
                 </form>
             </Card>
         </div>
